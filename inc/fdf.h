@@ -28,9 +28,11 @@ int	read_file1(int fd);
 int	check_line1(char *line);
 int	read_file2(int fd);
 int	check_line2(char *line);
+char	***make_tab(int fd, int y_max);
 
 t_fdf	get_infos(char *file, int x_max);
 t_dots	*make_list(char *line, int y);
 t_dots	*make_node(char *dot, int x, int y);
 
+void	affiche_tab_debug(char ***tab);
 #endif
