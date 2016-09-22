@@ -8,6 +8,9 @@ int	usage(char *id);
 int	error(char *id);
 
 int	check_file(char **av);
-int	read_file(int fd);
+int	read_file1(int fd);
+int	check_line1(char *line);
+int	read_file2(int fd);
+int	check_line2(char *line);
 
 #endif
