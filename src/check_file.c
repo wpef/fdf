@@ -3,6 +3,7 @@
 int	check_file(char **av)
 {
 	int	fd;
+	int ab;
 
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (-1);
@@ -10,9 +11,10 @@ int	check_file(char **av)
 		return (-1);
 	close(fd);
 	fd = open(av[1], O_RDONLY);
-	if (read_file2(fd) < 0)
+	if ((ab = read_file2(fd)) < 0)
 		return (-1);
-	return (1);
+	close(fd);
+	return (ab);
 }
 
 int	read_file1(int fd)
