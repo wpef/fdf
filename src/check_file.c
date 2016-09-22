@@ -7,7 +7,7 @@ int	check_file(char **av)
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (-1);
 	if (read_file1(fd) < 0)
-		return(-1);
+		return (-1);
 	close(fd);
 	fd = open(av[1], O_RDONLY);
 	if (read_file2(fd) < 0)
@@ -41,7 +41,7 @@ int	check_line1(char *line)
 		while (ft_isdigit(line[i]))
 			i++;
 		if (line[i] != ' ')
-			break;
+			break ;
 		i++;
 	}
 	if (i == ft_strlen(line))
