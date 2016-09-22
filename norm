@@ -1,0 +1,11 @@
+Norme: ./inc/fdf.h
+Error: 42 header not at top of the file
+--
+Norme: ./src/error.c
+Error: 42 header not at top of the file
+--
+Norme: ./src/main.c
+Error: 42 header not at top of the file
+--
+Norme: ./src/check_file.c
+Error: 42 header not at top of the file
