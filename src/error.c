@@ -16,5 +16,7 @@ int	error(char *id)
 	ft_putstr_fd("fdf: error\nError: ", STDERR_FILENO);
 	if (ERROR("file"))
 		ft_putendl_fd("Invalid file", STDERR_FILENO);
+	else
+		ft_putendl_fd(id, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }

@@ -2,16 +2,17 @@
 
 int	main(int ac, char **av)
 {
-	t_fdf	fdf;
-	int		x_max;
+	t_fdf	all;
 
 	if (ac == 1)
 		return (usage("no file"));
 	if (ac > 2)
 		return (usage("multiple file"));
-	if ((x_max = check_file(av)) == -1)
+	if ((check_file(av, &all)) == -1)
 		return (error("file"));
-	fdf = get_infos(av[1], x_max);
-	ft_idebug("NB LINES == %", fdf.y_max);
+	get_infos(av[1], &all);
+	ft_putendl("yooyo");
+	affiche_tab_debug(all.tab);
+	ft_putendl("ererer");
 	return (0);
 }
