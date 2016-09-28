@@ -6,6 +6,7 @@ int	**make_tab(int fd, int y_max, int x_max)
 	int	y;
 
 	y = 0;
+	ft_idebug("Y MAX = %", y_max);
 	rest = malloc(sizeof(int) * y_max * x_max);
 	while (y_max > 0)
 	{
@@ -26,7 +27,7 @@ int	*make_line(int fd, int x_max)
 
 	i = 0;
 	ft_gnl(fd, &buf);
-	tab = ft_strsplit(buf, ' ');
+	tab = splitmap(buf, x_max);
 	ft_strdel(&buf);
 	res = malloc(sizeof(int) * x_max);
 	while (tab[i])
@@ -37,28 +38,29 @@ int	*make_line(int fd, int x_max)
 	return (res);
 }
 
-void	affiche_tab_debug(int **tab)
+char	**splitmap(char *line, int x_max)
 {
-	int y = 0;
-	int x = 0;
+	int i;
+	int strt;
+	int len;
+	char **tab;
 
-	if (tab)
-		ft_putendl("AFUG");
-	if (tab[y])
-		ft_putendl("AFUG");
-	if (tab[y][x])
-		ft_putendl("AFUG");
-	ft_putendl("INSIDE MAMEN");
-	while (tab[y])
+	i = 0;
+	strt = 0;
+	if (line == NULL)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * x_max + 1);
+	while (i < x_max)
 	{
-		x = 0;
-		while (tab[y][x])
-		{
-			ft_putnbr(tab[y][x]);
-		ft_putchar('\t');
-			x++;
-		}
-		ft_putchar('\n');
-		y++;
+		while (line[strt] && !ft_isalnum(line[strt]))
+			strt++;
+		len = 0;
+		while (line[strt + len] && ft_isalnum(line[strt + len]))
+				len++;
+		tab[i] = ft_strsub(line, strt, len);
+		strt = strt + len;
+		i++;
 	}
+	tab[x_max] = NULL;
+	return (tab);
 }

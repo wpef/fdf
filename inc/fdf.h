@@ -22,8 +22,10 @@ int	check_line2(char *line);
 
 int **make_tab(int fd, int y_max, int x_max);
 int	*make_line(int fd, int x_max);
+char	**splitmap(char *line, int x_max);
 
 int	get_infos(char *file, t_fdf *all);
-void	affiche_tab_debug(int **tab);
+void	affiche_tab_debug(int **tab, int y_max, int x_max);
+void	debug_affmap(char **tab);
 
 #endif

@@ -11,8 +11,6 @@ int	main(int ac, char **av)
 	if ((check_file(av, &all)) == -1)
 		return (error("file"));
 	get_infos(av[1], &all);
-	ft_putendl("\n____DEBUG____");
-	affiche_tab_debug(all.tab);
-	ft_putendl("________\n");
+	affiche_tab_debug(all.tab, all.y_max, all.x_max);
 	return (0);
 }
