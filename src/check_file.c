@@ -15,7 +15,6 @@ int	check_file(char **av, t_fdf *all)
 	if ((x_max = read_file2(fd)) < 0)
 		return (-1);
 	close(fd);
-	all = malloc(sizeof(t_fdf));
 	all->x_max = x_max;
 	all->y_max = y_max;
 	return (1);
