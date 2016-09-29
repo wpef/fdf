@@ -6,7 +6,6 @@ int	**make_tab(int fd, int y_max, int x_max)
 	int	y;
 
 	y = 0;
-	ft_idebug("Y MAX = %", y_max);
 	rest = malloc(sizeof(int) * y_max * x_max);
 	while (y_max > 0)
 	{
@@ -49,7 +48,7 @@ char	**splitmap(char *line, int x_max)
 	strt = 0;
 	if (line == NULL)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * x_max + 1);
+	tab = (char **)malloc(sizeof(char *) * (x_max + 1));
 	while (i < x_max)
 	{
 		while (line[strt] && !ft_isalnum(line[strt]))
