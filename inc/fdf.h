@@ -10,6 +10,8 @@ typedef struct	s_fdf
 	int		**tab;
 	int		x_max;
 	int		y_max;
+	void	*mlx;
+	void	*win;
 }				t_fdf;
 
 int	usage(char *id);
@@ -26,6 +28,10 @@ int	*make_line(int fd, int x_max);
 char	**splitmap(char *line, int x_max);
 
 int	get_infos(char *file, t_fdf *all);
+
+int run_mlx(t_fdf *all);
+void	print_fdf(t_fdf *all);
+
 void	affiche_tab_debug(int **tab, int y_max, int x_max);
 void	debug_affmap(char **tab);
 
