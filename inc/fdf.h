@@ -1,6 +1,7 @@
 #ifndef FDF_H
 # define FDF_H
 # include "libft.h"
+# include "mlx.h"
 # define ERROR(ID) (ft_strcmp(ID, id) == 0 ? 1 : 0)
 # define BUFF_SIZE 50
 
