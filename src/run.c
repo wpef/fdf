@@ -11,13 +11,27 @@ int run_mlx(t_fdf *all)
 	all->win = win;
 	print_fdf(all);
 	//read_commands(all);
+	mlx_loop(mlx);
 	return (1);
 }
+
 
 void	print_fdf(t_fdf *all)
 {
 	int	**map;
+	int y;
 
+	y = 0;
 	map = all->tab;
-	affiche_tab_debug(map, all->y_max, all->x_max);
+	while (y < all->y_max)
+	{
+		print_line(map[y], y, all);
+		y++;
+	}
+
+}
+
+void	print_line(int *line, int y, t_fdf *all)
+{
+	
 }
