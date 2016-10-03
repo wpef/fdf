@@ -8,6 +8,13 @@
 # define X_MAX all->x_max
 # define BUFF_SIZE 50
 
+typedef struct	s_dot
+{
+	int				x;
+	int				y;
+	struct s_dot	*next;
+}				t_dot;
+
 typedef struct	s_fdf
 {
 	int		**tab;
@@ -17,13 +24,6 @@ typedef struct	s_fdf
 	void	*mlx;
 	void	*win;
 }				t_fdf;
-
-typedef struct	s_dot;
-{
-	int		x;
-	int		y;
-	t_dot	*next;
-}				t_dot;
 
 int				usage(char *id);
 int				error(char *id);
@@ -39,8 +39,9 @@ int				*make_line(int fd, int x_max);
 char			**splitmap(char *line, int x_max);
 
 int				get_infos(char *file, t_fdf *all);
-t_dot			**get_dots (t_fdf *all);
-t_dot			*init_list (t_fdf *all);
+void			get_dots(t_fdf *all);
+t_dot			*init_list(t_fdf *all);
+t_dot			*make_node(int x, int y);
 
 int				run_mlx(t_fdf *all);
 void			print_fdf(t_fdf *all);
@@ -48,5 +49,9 @@ void			print_line(int *line, int y, t_fdf *all);
 
 void			affiche_tab_debug(int **tab, int y_max, int x_max);
 void			debug_affmap(char **tab);
+void			debug_list(t_fdf *all);
+
+int				get_pixelpos_x(int x, int y);
+int				get_pixelpos_y(int x, int y);
 
 #endif

@@ -11,7 +11,25 @@ int	main(int ac, char **av)
 	if ((check_file(av, &all)) == -1)
 		return (error("file"));
 	get_infos(av[1], &all);
-//	affiche_tab_debug(all.tab, all.y_max, all.x_max);
-	run_mlx(&all);
+//	run_mlx(&all);
+	debug_list(&all);
 	return (0);
+}
+
+void	debug_list(t_fdf *all)
+{
+	t_dot *ptr;
+	int i = 0;
+	ptr = *all->dots;
+	while (ptr != NULL)
+	{
+		for (i = 0; i < X_MAX; i++)
+		{
+			ft_putnbr(ptr->x);
+			ft_putchar('\t');
+			ptr = ptr->next;
+		}
+		ft_putchar('\n');
+		i = 0;
+	}
 }
