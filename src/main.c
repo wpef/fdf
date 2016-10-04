@@ -11,8 +11,8 @@ int	main(int ac, char **av)
 	if ((check_file(av, &all)) == -1)
 		return (error("file"));
 	get_infos(av[1], &all);
-//	run_mlx(&all);
-	debug_list(&all);
+	run_mlx(&all);
+//	debug_list(&all);
 	return (0);
 }
 

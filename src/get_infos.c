@@ -3,15 +3,15 @@
 int get_pixelpos_x(int x, int y)
 {
 	if (y > -1)
-		return (x);
-	return (x);
+		return (x * 10 + 30);
+	return (x * 10 + 30);
 }
 
 int get_pixelpos_y(int x, int y)
 {
 	if (x > -1)
-		return (y);
-	return (y);
+		return (y * 10 + 30);
+	return (y * 10 + 30);
 }
 
 int		get_infos(char *file, t_fdf *all)

@@ -19,11 +19,24 @@ typedef struct	s_fdf
 {
 	int		**tab;
 	t_dot	**dots;
-	int		x_max;
+	int		x_max; //nb_col
 	int		y_max;
+	int		x_og;
+	int		y_og;
+	int		height;
+	int		zoom;
 	void	*mlx;
 	void	*win;
 }				t_fdf;
+
+typedef struct	s_line
+{
+	int	x;
+	int	y;
+	int	xd;
+	int	yd;
+	int color;
+}				t_line;
 
 int				usage(char *id);
 int				error(char *id);
@@ -45,7 +58,7 @@ t_dot			*make_node(int x, int y);
 
 int				run_mlx(t_fdf *all);
 void			print_fdf(t_fdf *all);
-void			print_line(int *line, int y, t_fdf *all);
+void			print_line(t_dot *og, t_dot *gol, t_fdf *all);
 
 void			affiche_tab_debug(int **tab, int y_max, int x_max);
 void			debug_affmap(char **tab);
