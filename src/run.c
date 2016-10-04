@@ -6,7 +6,7 @@ int run_mlx(t_fdf *all)
 	void	*win;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "FDF"); //win title might change
+	win = mlx_new_window(mlx, 1000, 800, "FDF"); //set win size
 	all->mlx = mlx;
 	all->win = win;
 	print_fdf(all);
@@ -18,33 +18,25 @@ int run_mlx(t_fdf *all)
 void	print_fdf(t_fdf *all)
 {
 	t_dot *ptr;
+	t_dot *ptr2;
+	t_l l;
 
 	ptr = *all->dots;
 	while (ptr->next != NULL)
 	{
 		if (ptr->y == ptr->next->y)
 		{
-			set_line;
-			drawline;
+			set_line(&l, ptr, ptr->next, all);
+			printline(&l, all);
+		}
+		ptr2 = ptr->next;
+		while (ptr2 != NULL && ptr2->x != ptr->x)
+			ptr2=ptr2->next;
+		if (ptr2 && ptr2->y == (ptr->y + 1) && ptr2->x == ptr->x)
+		{
+			set_line(&l, ptr, ptr2, all);
+			printline(&l, all);
 		}
 		ptr=ptr->next;
-	}
-}
-
-void	print_line(t_dot *og, t_dot *gol, t_fdf *all)
-{
-	int px;
-	float y;
-	float dx;
-	float dy;
-
-	px = og->x;
-	dx = (gol->x - og->x);
-	dy = (gol->y - og->y);
-	while (px <= gol->x)
-	{
-		y = og->y + dy * (px - og->x) / dx;
-		mlx_pixel_put(all->mlx, all->win, px, y, WHITE);
-		px++;
 	}
 }

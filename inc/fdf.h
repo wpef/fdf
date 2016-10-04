@@ -2,6 +2,7 @@
 # define FDF_H
 # include "libft.h"
 # include "mlx.h"
+# include "math.h"
 # define ERROR(ID) (ft_strcmp(ID, id) == 0 ? 1 : 0)
 # define WHITE 0x00FFFFFF
 # define Y_MAX all->y_max
@@ -12,6 +13,7 @@ typedef struct	s_dot
 {
 	int				x;
 	int				y;
+	int				z;
 	struct s_dot	*next;
 }				t_dot;
 
@@ -36,7 +38,7 @@ typedef struct	s_line
 	int	xd;
 	int	yd;
 	int color;
-}				t_line;
+}				t_l;
 
 int				usage(char *id);
 int				error(char *id);
@@ -54,11 +56,15 @@ char			**splitmap(char *line, int x_max);
 int				get_infos(char *file, t_fdf *all);
 void			get_dots(t_fdf *all);
 t_dot			*init_list(t_fdf *all);
-t_dot			*make_node(int x, int y);
+t_dot			*make_node(int x, int y, int z);
 
 int				run_mlx(t_fdf *all);
 void			print_fdf(t_fdf *all);
 void			print_line(t_dot *og, t_dot *gol, t_fdf *all);
+int				set_line(t_l *l, t_dot *og, t_dot *gol, t_fdf *all);
+int				drawline(t_l *l, t_fdf *all);
+int				printline(t_l *l, t_fdf *all);
+int				print_std(t_l *l, t_fdf *all);
 
 void			affiche_tab_debug(int **tab, int y_max, int x_max);
 void			debug_affmap(char **tab);
