@@ -3,6 +3,7 @@
 # include "libft.h"
 # include "mlx.h"
 # include "math.h"
+# include <stdio.h>
 # define ERROR(ID) (ft_strcmp(ID, id) == 0 ? 1 : 0)
 # define WHITE 0x00FFFFFF
 # define Y_MAX all->y_max
@@ -72,5 +73,9 @@ void			debug_list(t_fdf *all);
 
 int				get_pixelpos_x(int x, int y);
 int				get_pixelpos_y(int x, int y);
+
+int				read_commands(t_fdf *all);
+int				keypress(int keycode, void *param);
+int				move_og(int keycode, t_fdf *all);
 
 #endif

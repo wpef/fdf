@@ -9,8 +9,10 @@ int run_mlx(t_fdf *all)
 	win = mlx_new_window(mlx, 1000, 800, "FDF"); //set win size
 	all->mlx = mlx;
 	all->win = win;
+	all->x_og = 100;
+	all->y_og = 80;
 	print_fdf(all);
-	//read_commands(all);
+	read_commands(all);
 	mlx_loop(mlx);
 	return (1);
 }
@@ -39,4 +41,38 @@ void	print_fdf(t_fdf *all)
 		}
 		ptr=ptr->next;
 	}
+}
+
+int		read_commands(t_fdf *all)
+{
+	mlx_key_hook(all->win, keypress, all);
+	return (1);
+}
+
+int		keypress(int keycode, void *all)
+{
+	if (!all)
+		error("key hook crashed");
+	if (keycode == 53)
+		exit(EXIT_SUCCESS);
+	if (keycode >= 123 && keycode <= 126)
+	{
+		move_og(keycode, all);
+		print_fdf(all);
+	}
+	printf("KEY = %d\n", keycode);
+	return (1);
+}
+
+int		move_og(int keycode, t_fdf *all)
+{
+	if (keycode == 126)
+		all->x_og = all->x_og + 10;
+	else if (keycode == 123)
+		all->y_og = all->y_og - 10;
+	else if (keycode == 125)
+		all->x_og = all->x_og - 10;
+	else
+		all->y_og = all->y_og + 10;
+	return (1);
 }

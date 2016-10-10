@@ -24,7 +24,7 @@ int		get_infos(char *file, t_fdf *all)
 	all->tab = make_tab(fd, all->y_max, all->x_max);
 	all->dots = malloc(sizeof(all));
 	get_dots(all);
-	all->zoom = X_MAX > Y_MAX ? 1200 / X_MAX : 800 / Y_MAX;
+	all->zoom = 45;
 	all->height = -3;
 	return (all->tab ? 1 : error("TAB NOT CREATED"));
 }
