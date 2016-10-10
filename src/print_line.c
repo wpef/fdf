@@ -1,15 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_line.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 19:36:52 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/10/10 19:43:07 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int		set_line(t_l *l, t_dot *og, t_dot *gol, t_fdf *all)
+int	set_line(t_l *l, t_dot *og, t_dot *gol, t_fdf *all)
 {
 	l->x = ((og->x * all->zoom) + (og->z * all->height) + all->x_og);
 	l->y = ((og->y * all->zoom) + (og->z * all->height) + all->y_og);
-	l->xd = (((gol->x * all->zoom) + (gol->z * all->height) + all->x_og) - l->x);
-	l->yd = (((gol->y * all->zoom) + (gol->z * all->height) + all->y_og) - l->y);
+	l->xd = (((gol->x * all->zoom) + (gol->z * all->height) + all->x_og)
+			- (l->x));
+	l->yd = (((gol->y * all->zoom) + (gol->z * all->height) + all->y_og)
+			- (l->y + 1));
 	return (1);
 }
 
-int		printline(t_l *l, t_fdf *all)
+int	printline(t_l *l, t_fdf *all)
 {
 	int		x;
 	int		y;
@@ -18,7 +32,6 @@ int		printline(t_l *l, t_fdf *all)
 	x = 0;
 	y = 0;
 	coef = 0.0;
-	l->yd = l->yd;
 	while (coef <= 1)
 	{
 		x = l->x + (l->xd * coef);
@@ -36,7 +49,7 @@ int	print_std(t_l *l, t_fdf *all)
 	i = 0;
 	if (l->xd == 0)
 	{
-		while (i != l->yd)
+		while (i <= l->yd)
 		{
 			mlx_pixel_put(all->mlx, all->win, l->x, l->y + i, WHITE);
 			i < l->yd ? i++ : i--;
@@ -44,7 +57,7 @@ int	print_std(t_l *l, t_fdf *all)
 	}
 	else if (l->yd == 0)
 	{
-		while (i != l->xd)
+		while (i <= l->xd)
 		{
 			mlx_pixel_put(all->mlx, all->win, l->x + i, l->y, WHITE);
 			i < l->xd ? i++ : i--;

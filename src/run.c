@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   run.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 19:37:00 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/10/10 19:46:30 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int run_mlx(t_fdf *all)
+int		run_mlx(t_fdf *all)
 {
 	void	*mlx;
 	void	*win;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1000, 800, "FDF"); //set win size
+	win = mlx_new_window(mlx, 1000, 800, "FDF");
 	all->mlx = mlx;
 	all->win = win;
 	all->x_og = 100;
@@ -51,28 +63,33 @@ int		read_commands(t_fdf *all)
 
 int		keypress(int keycode, void *all)
 {
+	t_fdf *cpy;
+
+	cpy = all;
 	if (!all)
 		error("key hook crashed");
 	if (keycode == 53)
 		exit(EXIT_SUCCESS);
+	mlx_clear_window(cpy->mlx, cpy->win);
 	if (keycode >= 123 && keycode <= 126)
-	{
-		move_og(keycode, all);
-		print_fdf(all);
-	}
-	printf("KEY = %d\n", keycode);
+		move_og(keycode, cpy);
+	else if (keycode == 69)
+		cpy->zoom++;
+	else if (keycode == 78)
+		cpy->zoom--;
+	print_fdf(cpy);
 	return (1);
 }
 
 int		move_og(int keycode, t_fdf *all)
 {
 	if (keycode == 126)
-		all->x_og = all->x_og + 10;
-	else if (keycode == 123)
 		all->y_og = all->y_og - 10;
-	else if (keycode == 125)
+	else if (keycode == 123)
 		all->x_og = all->x_og - 10;
-	else
+	else if (keycode == 125)
 		all->y_og = all->y_og + 10;
+	else
+		all->x_og = all->x_og + 10;
 	return (1);
 }

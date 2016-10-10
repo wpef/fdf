@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   debug.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 19:34:40 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/10/10 19:41:44 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	aff_nbline(int *line, int max)
 {
-	int i = 0;
+	int i;
+
+	i = 0;
 	while (i < max)
 	{
 		ft_putnbr(line[i]);
@@ -14,8 +28,9 @@ void	aff_nbline(int *line, int max)
 
 void	debug_affmap(char **tab)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	while (tab[i])
 	{
 		ft_putendl(tab[i]);
@@ -25,9 +40,11 @@ void	debug_affmap(char **tab)
 
 void	affiche_tab_debug(int **tab, int y_max, int x_max)
 {
-	int y = 0;
-	int x = 0;
+	int y;
+	int x;
 
+	y = 0;
+	x = 0;
 	ft_putendl("_________ DEBUG _________");
 	while (y < y_max)
 	{

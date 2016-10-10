@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_infos.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 19:35:20 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/10/10 19:40:35 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int get_pixelpos_x(int x, int y)
+int		get_pixelpos_x(int x, int y)
 {
 	if (y > -1)
 		return (x);
 	return (x);
 }
 
-int get_pixelpos_y(int x, int y)
+int		get_pixelpos_y(int x, int y)
 {
 	if (x > -1)
 		return (y);
@@ -24,12 +36,12 @@ int		get_infos(char *file, t_fdf *all)
 	all->tab = make_tab(fd, all->y_max, all->x_max);
 	all->dots = malloc(sizeof(all));
 	get_dots(all);
-	all->zoom = 45;
+	all->zoom = 800 / X_MAX;
 	all->height = -3;
 	return (all->tab ? 1 : error("TAB NOT CREATED"));
 }
 
-void	get_dots (t_fdf *all)
+void	get_dots(t_fdf *all)
 {
 	t_dot	*ptr;
 	t_dot	*curs;

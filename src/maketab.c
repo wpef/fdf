@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   maketab.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/10 19:36:47 by fde-monc          #+#    #+#             */
+/*   Updated: 2016/10/10 19:43:50 by fde-monc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int	**make_tab(int fd, int y_max, int x_max)
+int		**make_tab(int fd, int y_max, int x_max)
 {
 	int	**rest;
 	int	y;
@@ -17,7 +29,7 @@ int	**make_tab(int fd, int y_max, int x_max)
 	return (rest);
 }
 
-int	*make_line(int fd, int x_max)
+int		*make_line(int fd, int x_max)
 {
 	char **tab;
 	char *buf;
