@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:34:34 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/10 19:42:32 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/13 11:17:23 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_file(char **av, t_fdf *all)
 {
 	int	fd;
 	int	y_max;
-	int x_max;
+	int	x_max;
 
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (-1);

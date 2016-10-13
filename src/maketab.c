@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:36:47 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/10 19:43:50 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/13 11:16:00 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int		**make_tab(int fd, int y_max, int x_max)
 
 int		*make_line(int fd, int x_max)
 {
-	char **tab;
-	char *buf;
-	int *res;
-	int i;
+	char	**tab;
+	char	*buf;
+	int		*res;
+	int		i;
 
 	i = 0;
 	ft_gnl(fd, &buf);
@@ -51,10 +51,10 @@ int		*make_line(int fd, int x_max)
 
 char	**splitmap(char *line, int x_max)
 {
-	int i;
-	int strt;
-	int len;
-	char **tab;
+	int		i;
+	int		strt;
+	int		len;
+	char	**tab;
 
 	i = 0;
 	strt = 0;

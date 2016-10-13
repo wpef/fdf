@@ -22,7 +22,7 @@ typedef struct	s_fdf
 {
 	int		**tab;
 	t_dot	**dots;
-	int		x_max; //nb_col
+	int		x_max;
 	int		y_max;
 	int		x_og;
 	int		y_og;
@@ -38,7 +38,7 @@ typedef struct	s_line
 	int	y;
 	int	xd;
 	int	yd;
-	int color;
+	int	color;
 }				t_l;
 
 int				usage(char *id);

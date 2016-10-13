@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:35:20 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/10 19:40:35 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/13 11:15:03 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	get_dots(t_fdf *all)
 
 t_dot	*make_node(int x, int y, int z)
 {
-	t_dot *ptr;
+	t_dot	*ptr;
 
 	ptr = malloc(sizeof(t_dot));
 	ptr->x = get_pixelpos_x(x, y);

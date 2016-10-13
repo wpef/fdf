@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:37:00 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/10 19:46:30 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/13 11:16:45 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int		run_mlx(t_fdf *all)
 
 void	print_fdf(t_fdf *all)
 {
-	t_dot *ptr;
-	t_dot *ptr2;
-	t_l l;
+	t_dot	*ptr;
+	t_dot	*ptr2;
+	t_l		l;
 
 	ptr = *all->dots;
 	while (ptr->next != NULL)
@@ -63,7 +63,7 @@ int		read_commands(t_fdf *all)
 
 int		keypress(int keycode, void *all)
 {
-	t_fdf *cpy;
+	t_fdf	*cpy;
 
 	cpy = all;
 	if (!all)
