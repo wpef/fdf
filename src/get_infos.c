@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:35:20 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/13 11:15:03 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/17 15:16:46 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,15 @@ void	get_dots(t_fdf *all)
 	int		x;
 	int		y;
 
-	x = 0;
+	x = 1;
 	y = 0;
-
 	*all->dots = make_node(0, 0, all->tab[0][0]);
-	x++;
 	ptr = *all->dots;
 	curs = ptr;
 	ptr = ptr->next;
 	while (y < Y_MAX)
 	{
-		if (y > 0)
-			x = 0;
+		x = y > 0 ? 0 : x;
 		while (x < X_MAX)
 		{
 			ptr = make_node(x, y, all->tab[y][x]);
@@ -83,4 +80,3 @@ t_dot	*make_node(int x, int y, int z)
 	ptr->next = NULL;
 	return (ptr);
 }
-

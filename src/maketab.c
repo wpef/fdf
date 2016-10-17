@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:36:47 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/13 11:16:00 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/17 15:10:24 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**splitmap(char *line, int x_max)
 			strt++;
 		len = 0;
 		while (line[strt + len] && ft_isalnum(line[strt + len]))
-				len++;
+			len++;
 		tab[i] = ft_strsub(line, strt, len);
 		strt = strt + len;
 		i++;

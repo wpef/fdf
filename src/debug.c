@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:34:40 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/10 19:41:44 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/17 15:08:42 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	aff_nbline(int *line, int max)
 		ft_putchar('\t');
 		i++;
 	}
-		ft_putchar('\n');
+	ft_putchar('\n');
 }
 
 void	debug_affmap(char **tab)

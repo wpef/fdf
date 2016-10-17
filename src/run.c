@@ -6,7 +6,7 @@
 /*   By: fde-monc <fde-monc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 19:37:00 by fde-monc          #+#    #+#             */
-/*   Updated: 2016/10/13 11:16:45 by fde-monc         ###   ########.fr       */
+/*   Updated: 2016/10/17 15:18:05 by fde-monc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	print_fdf(t_fdf *all)
 		}
 		ptr2 = ptr->next;
 		while (ptr2 != NULL && ptr2->x != ptr->x)
-			ptr2=ptr2->next;
+			ptr2 = ptr2->next;
 		if (ptr2 && ptr2->y == (ptr->y + 1) && ptr2->x == ptr->x)
 		{
 			set_line(&l, ptr, ptr2, all);
 			printline(&l, all);
 		}
-		ptr=ptr->next;
+		ptr = ptr->next;
 	}
 }
 
